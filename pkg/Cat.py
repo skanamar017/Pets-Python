@@ -12,7 +12,10 @@ class Cat(Pet):
         Returns:
             None
         """
-        super().__init__(name, age)
+#        super().__init__(name, age)
+        self.name = name
+        self.age = age
+        self.owner = None
 
     def speak(self) -> str:
         """
