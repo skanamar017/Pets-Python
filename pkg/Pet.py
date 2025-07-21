@@ -1,7 +1,7 @@
 from .Animal import Animal
 
 class Pet(Animal):
-    def __init__(self) -> None:
+    def __init__(self, name:str="", age:int=0) -> None:
         """
         Initialize a Pet with optional name and age.
 
@@ -12,7 +12,11 @@ class Pet(Animal):
         Returns:
             None
         """
-        pass
+        self.name=name
+        self.age=age
+        self.owner=None
+        
+
 
     # Name property
 
@@ -24,7 +28,8 @@ class Pet(Animal):
         Returns:
             str: The name of the pet.
         """
-        return ""
+        return self.name
+    
 
     @name.setter
     def name(self, value: str) -> None:
@@ -37,7 +42,7 @@ class Pet(Animal):
         Returns:
             None
         """
-        pass
+        self.name=value
 
     # Age property
 
@@ -49,7 +54,7 @@ class Pet(Animal):
         Returns:
             int: The age of the pet.
         """
-        return -1
+        return self.age
 
     @age.setter
     def age(self, value: int) -> None:
@@ -62,7 +67,7 @@ class Pet(Animal):
         Returns:
             None
         """
-        pass
+        self.age=value
 
     # Owner property
 
@@ -74,7 +79,7 @@ class Pet(Animal):
         Returns:
             PetOwner: The owner of the pet.
         """
-        return None
+        return self.owner
 
     @owner.setter
     def owner(self, value) -> None:
@@ -87,7 +92,10 @@ class Pet(Animal):
         Returns:
             None
         """
-        pass
+        from .PetOwner import PetOwner
+        self.owner=PetOwner(value, [])
+        
+        self.owner.pets.append(self)
 
     def __str__(self) -> str:
         """

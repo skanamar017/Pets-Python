@@ -12,7 +12,7 @@ class Cat(Pet):
         Returns:
             None
         """
-        pass
+        super().__init__(name, age)
 
     def speak(self) -> str:
         """
@@ -21,7 +21,7 @@ class Cat(Pet):
         Returns:
             str: The sound the cat makes.
         """
-        return ""
+        return "meow"
 
     def __str__(self) -> str:
         """

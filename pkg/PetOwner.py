@@ -14,7 +14,8 @@ class PetOwner:
         Returns:
             None
         """
-        pass
+        self.name=name
+        self.pets=pets
 
     # Name property
     @property
@@ -25,7 +26,7 @@ class PetOwner:
         Returns:
             str: The name of the pet owner.
         """
-        return ""
+        return self.name
 
     # Pets property
 
@@ -37,7 +38,7 @@ class PetOwner:
         Returns:
             List[Pet]: A list of all pets owned by the owner.
         """
-        return None
+        return self.pets
 
     def addPet(self, pet: Pet) -> None:
         """
@@ -49,7 +50,7 @@ class PetOwner:
         Returns:
             None
         """
-        pass
+        if pet.owner==self.name: self.pets.append(pet)
 
     def removePet(self, pet: Pet) -> None:
         """
@@ -61,7 +62,7 @@ class PetOwner:
         Returns:
             None
         """
-        pass
+        if pet.owner==self.name: self.pets.remove(pet)
 
     def isOwnerOf(self, pet: Pet) -> bool:
         """
@@ -73,7 +74,7 @@ class PetOwner:
         Returns:
             bool: True if the owner has the pet, False otherwise.
         """
-        return False
+        return True if pet in self.pets else False
 
     def getYoungestPetAge(self) -> int:
         """
@@ -82,7 +83,7 @@ class PetOwner:
         Returns:
             int: The age of the youngest pet.
         """
-        return -1
+        return min(x.age for x in self.pets)
 
     def getOldestPetAge(self) -> int:
         """
@@ -91,7 +92,7 @@ class PetOwner:
         Returns:
             int: The age of the oldest pet.
         """
-        return -1
+        return max(x.age for x in self.pets)
 
     def getAveragePetAge(self) -> float:
         """
@@ -100,7 +101,7 @@ class PetOwner:
         Returns:
             float: The average age of all pets.
         """
-        return 0.0
+        return sum(x.age for x in self.pets)/len(self.pets)
 
     def getNumberOfPets(self) -> int:
         """
@@ -109,7 +110,7 @@ class PetOwner:
         Returns:
             int: The total number of pets.
         """
-        return -1
+        return len(self.pets)
 
     def __str__(self) -> str:
         """

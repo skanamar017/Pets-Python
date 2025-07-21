@@ -12,7 +12,7 @@ class Dog(Pet):
         Returns:
             None
         """
-        pass
+        super().__init__(name, age)
 
     def speak(self) -> str:
         """
@@ -20,7 +20,7 @@ class Dog(Pet):
         Returns:
             str: The sound the dog makes.
         """
-        return ""
+        return "bark"
 
     def __str__(self) -> str:
         """
